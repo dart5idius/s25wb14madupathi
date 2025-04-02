@@ -2,4 +2,19 @@ extends layout
 
 block content
   h1= title
-  p Welcome to the #{title} : Xylophones.
+  p Welcome to the #{title} for : Xylophones .
+
+  -
+    var results = [
+      { material: 'Rosewood', keys: 32, tuning: 'Chromatic' },
+      { material: 'Aluminum', keys: 25, tuning: 'Diatonic' },
+      { material: 'Padauk', keys: 37, tuning: 'Pentatonic' }
+    ];
+
+  div.container-fluid
+    div.row
+      each xylophone in results
+        div.col-sm-2
+          p Material: #{xylophone.material}
+          p Number of Keys: #{xylophone.keys}
+          p Tuning: #{xylophone.tuning}
