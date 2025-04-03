@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+  body
+    h1= title
+    p This is the grid page.
+    p Query Parameters:
+    if query
+      p Rows: #{query.rows}
+      p Columns: #{query.cols}
+    else
+      p No query parameters provided.
