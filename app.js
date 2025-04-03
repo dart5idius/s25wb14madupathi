@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var xylophonesRouter = require('./routes/Xylophones');
 var gridRouter = require('./routes/grid');
+var pickRouter = require('./routes/pick');  // This imports the pick router
 
 var app = express();
 
@@ -19,12 +20,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));  // Serves static files from public/
 
+// Route handlers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/Xylophones', xylophonesRouter);
-app.use('/grid', gridRouter); 
+app.use('/grid', gridRouter);
+app.use('/pick', pickRouter);  // This mounts the pick router at /pick
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
